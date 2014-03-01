@@ -1,16 +1,12 @@
-PDL Client Examples
+Moment Tensor Listener Example
+==============================
+
+Run a python ExternalNotificationListener configured to receive `moment-tensor` type products.
 
 
-PDL Documentation is at http://ehppdl1.cr.usgs.gov/
+Getting Started
+---------------
 
+- Run `./init.sh start`
 
-lib/ProductClient was created using the following commands:
-
-```bash
-mkdir lib
-cd lib
-curl -O http://ehppdl1.cr.usgs.gov/ProductClient.zip
-unzip ProductClient.zip
-rm ProductClient.zip
-chmod +x ProductClient/init.sh
-```
+- Watch the log files created in the `data` directory, in particular `data/MomentTensorListener.py.log` that is created once the first moment tensor product is processed.

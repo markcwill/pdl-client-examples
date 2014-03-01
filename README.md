@@ -4,7 +4,8 @@ EIDS Input Wedge Example
 Run the EIDSInputWedge in polling mode, to send quakeml formatted messages to EHP development systems.
 
 
-== Getting started
+Getting started
+---------------
 
 1) Create (or configure) ssh keypair in config.ini, by default privateKeyFile = id_dsa .
 

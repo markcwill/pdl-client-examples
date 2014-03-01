@@ -12,7 +12,7 @@ NAME="Product Distribution"
 JAVA="java"
 
 # command managed by init script, this must be unique on the system because this script uses PS.
-COMMAND="$JAVA -jar lib/ProductClient/ProductClient.jar --configFile=conf/moment-tensor.ini --receive"
+COMMAND="$JAVA -jar lib/ProductClient/ProductClient.jar --configFile=config.ini --receive"
 
 
 ##

@@ -3,8 +3,8 @@ PDL Client Examples
 
 Example configurations for PDL clients, stored in separate branches:
 
-- [Moment Tensor Listener](tree/moment-tensor-listener)
-- [EIDS Input Wedge](tree/eids-input-wedge)
+- [Moment Tensor Listener](/jmfee-usgs/pdl-client-examples/tree/moment-tensor-listener)
+- [EIDS Input Wedge](/jmfee-usgs/pdl-client-examples/tree/eids-input-wedge)
 
 
 [Additional PDL Documentation](http://ehppdl1.cr.usgs.gov/)

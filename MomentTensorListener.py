@@ -14,12 +14,23 @@ from ExampleListener import Product
 
 
 if __name__ == '__main__':
+	# write data to a log file
 	logfile = os.path.join('data', os.path.basename(sys.argv[0]) + '.log')
 	f = open(logfile, 'ab+')
-
+	# current time
 	f.write('# ' + datetime.datetime.now().isoformat() + '\n');
+	# command line arguments
 	f.write('# arguments = ' + ' '.join(sys.argv))
+	# parse command line arguments
 	product = Product.getProduct()
+	# output parsed product
 	product.display(f)
+	# check if moment tensor is Mww
+	props = product.properties
+	if 'derived-magnitude-type' in props and props['derived-magnitude-type'] == 'Mww':
+		f.write('wphase\n')
+	else:
+		f.write('not wphase\n')
+	# add a blank line
 	f.write('\n')
 

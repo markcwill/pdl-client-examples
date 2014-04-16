@@ -8,8 +8,8 @@ import datetime
 # add ProductClient directory to path
 sys.path.append(os.path.join('lib', 'ProductClient'))
 
-# import Product, which parses ExternalNotificationListener arguments
-from ExampleListener import Product
+# import IndexerAction, which parses ExternalIndexerListener arguments
+from ExampleListener import IndexerAction
 
 
 
@@ -20,10 +20,13 @@ if __name__ == '__main__':
 	# current time
 	f.write('# ' + datetime.datetime.now().isoformat() + '\n');
 	# command line arguments
-	f.write('# arguments = ' + ' '.join(sys.argv))
+	f.write('# arguments = ' + ' '.join(sys.argv) + '\n');
 	# parse command line arguments
-	product = Product.getProduct()
-	# output parsed product
+	action = IndexerAction.getIndexerAction()
+	# output parsed action
+	f.write('action=' + action.action + '\n')
+	# output associated product
+	product = action.product
 	product.display(f)
 	props = product.properties
 	# check if moment tensor is Mww

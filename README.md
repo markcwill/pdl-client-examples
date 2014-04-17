@@ -1,7 +1,7 @@
-Moment Tensor Listener Example
+Cap Alert Listener Example
 ==============================
 
-Run a python ExternalNotificationListener configured to receive `moment-tensor` type products.
+Run a python ExternalNotificationListener configured to receive `cap` type products.
 
 
 Getting Started
@@ -9,4 +9,4 @@ Getting Started
 
 - Run `./init.sh start`
 
-- Watch the log files created in the `data` directory, in particular `data/MomentTensorListener.py.log` that is created once the first moment tensor product is processed.
+- Watch the log files created in the `data` directory, in particular `data/CapListener.py.log` that is created once the first cap product is processed.

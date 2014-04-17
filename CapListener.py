@@ -25,12 +25,6 @@ if __name__ == '__main__':
 	product = Product.getProduct()
 	# output parsed product
 	product.display(f)
-	# check if moment tensor is Mww
-	props = product.properties
-	if 'derived-magnitude-type' in props and props['derived-magnitude-type'] == 'Mww':
-		f.write('wphase\n')
-	else:
-		f.write('not wphase\n')
 	# add a blank line
 	f.write('\n')
 

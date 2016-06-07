@@ -1,9 +1,14 @@
 #! /usr/bin/env python
 
-
 import os
 import sys
 import datetime
+import json
+import logging
+logging.basicConfig(filename='/tmp/fido.log',level=logging.DEBUG)
+logging.debug("Starting up...")
+
+#import redis
 
 # add ProductClient directory to path
 sys.path.append(os.path.join('lib', 'ProductClient'))
@@ -12,13 +17,14 @@ sys.path.append(os.path.join('lib', 'ProductClient'))
 from ExampleListener import IndexerAction
 
 
-
 if __name__ == '__main__':
+    PDL_INDEX_CHANNEL = 'pdlindex'
+    dt = datetime.datetime.now().isoformat()  
 	# write data to a log file
 	logfile = os.path.join('data', os.path.basename(sys.argv[0]) + '.log')
 	f = open(logfile, 'ab+')
 	# current time
-	f.write('# ' + datetime.datetime.now().isoformat() + '\n');
+	f.write('# ' + dt + '\n');
 	# command line arguments
 	f.write('# arguments = ' + ' '.join(sys.argv) + '\n');
 	# parse command line arguments
@@ -38,4 +44,19 @@ if __name__ == '__main__':
 			f.write('not wphase\n')
 	# add a blank line
 	f.write('\n')
+    try:
+        logging.debug("Got message {0}, {1}".format(dt, product.code))
+        msg = {
+            'action': product.action,
+            'code': product.code,
+            'properties': props,
+            'source': product.source,
+            'status': product.status,
+            'updateTime': product.updateTime,
+        }
+        #RC = redis.from_url('redis://localhost/1')
+        #RC.publish(PDL_INDEX_CHANNEL, msg)
+    except Exception as e:
+        logging.exception(e)
+
 

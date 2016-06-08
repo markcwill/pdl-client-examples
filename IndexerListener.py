@@ -29,12 +29,12 @@ if __name__ == '__main__':
         # redis
         logging.debug("Got message {0}, {1}".format(dt, product.code))
         msg = {
-            'action': product.action,
+            'action': action.action,
             'code': product.code,
             'properties': props,
             'source': product.source,
             'status': product.status,
-            'updateTime': product.updateTime,
+            'updateTime': product.updateTime.isoformat(),
         }
         RC = redis.from_url('redis://localhost/1')
         RC.publish(PDL_INDEX_CHANNEL, json.dumps(msg))

@@ -1,12 +1,30 @@
 #! /usr/bin/env python
+"""
+RedisIndexer - Simple PDL Indexer for Redis
 
+- Mark Williams, Nevada Seismological Laboratory
+- University of Nevada, Reno (2016)
+
+This takes PDL products as processed by the example Listener classes and
+publishes them to a Redis PUBSUB channel (called 'pdlindex')
+
+Becuase it's a hook script, called from PDL, no easy way to pass in flags,
+could either 1) use config file in /etc, ./, et cetera, or 2) use environment 
+vars to set things like redisURL, error log, channel name.
+
+TODO
+----
+1) Set up generic messaging functionality for easy porting to GCP
+2) Maybe refactor ExampleListener classes, but they work well for now
+
+"""
 import os
 import sys
 import datetime
 import json
 import logging
 logging.basicConfig(format='%(asctime)s:%(levelname)s: %(message)s', filename='/tmp/fido.log',level=logging.DEBUG)
-logging.debug("Starting up...")
+logging.debug("Starting up...") # TODO: remove
 
 import redis
 
